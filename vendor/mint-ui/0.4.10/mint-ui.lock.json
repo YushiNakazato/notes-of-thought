@@ -1,0 +1,13 @@
+{
+  "name": "@yushi/mint-ui",
+  "version": "0.4.10",
+  "files": {
+    "theme.css": "88c9d5c8b13ea236bb3361a30410d8b201d40a93924d3731006f362316327877",
+    "components.css": "6f66f36303bc9c1c9b5223f99ca64e50d1e75c8fde609e6810e010093619d554",
+    "mint-ui.js": "1388daf26a9296a95ea5905c4bbc335fcd7c60b88f5e0b40425bc59667469fa4",
+    "examples/index.html": "2f47df195a94850d545215e8178bcd953128d2dfcbc0c61d3406affb49415e15",
+    "README.md": "a83fe8486ea00f5ba54f18884659409caf7ae3056e01fb5d5864892bdc0c1118",
+    "AGENTS.md": "a43a4549a1716ef62c954d373fb287e7a5e9565a29713bf7fba106d5be776900",
+    "package.json": "9f71955e873457822f241f56ae63a7a31a8985a17e26837777134c215e7721df"
+  }
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1118">
+  <title>Mint UI — ちいさな部品棚</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    .demo-header { max-width: 1040px; margin: 20px auto 0; }
+    .demo-header .mint-header-inner { gap: 12px; }
+    .demo-header .mint-select { margin-left: auto; }
+    .demo-main { max-width: 1088px; margin: auto; padding: 28px 24px 40px; }
+    .demo-intro { margin: 0 0 24px; padding: 0 6px; }
+    .demo-eyebrow { color: var(--mint-accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; margin: 0 0 8px; }
+    .demo-intro h1 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 34px); line-height: 1.5; }
+    .demo-intro p:last-child { margin: 0; }
+    .demo-tabs { margin-bottom: 24px; }
+    .demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .demo-wide { grid-column: 1 / -1; }
+    .mint-card-heading .demo-card-title { margin: 0; font-size: 21px; }
+    .demo-body { padding: 24px; }
+    .demo-body > :last-child { margin-bottom: 0; }
+    .demo-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .demo-status { min-height: 1.85em; margin: 18px 0 0; color: var(--mint-accent); font-size: 14px; }
+    .demo-label { display: block; font-size: 13px; color: var(--mint-muted); margin-bottom: 12px; }
+    .demo-directions { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-directions > span { display: flex; align-items: center; gap: 10px; }
+    .demo-table .mint-table-wrap { margin: 0 20px 20px; }
+    .demo-table .mint-table { min-width: 440px; }
+    .demo-table .mint-table th:not(:first-child), .demo-table .mint-table td { text-align: center; }
+    .demo-disclosure { margin: 0 20px 20px; }
+    .demo-disclosure .mint-disclosure-body { padding: 0 20px 22px; }
+    .demo-motion-list { margin: 0; padding-left: 1.3em; }
+    .demo-motion-list li + li { margin-top: 9px; }
+    .demo-footer { margin: 24px 6px 0; color: var(--mint-muted); font-size: 13px; }
+    @media (max-width: 1088px) {
+      .demo-header { margin-left: 24px; margin-right: 24px; }
+    }
+    @media (max-width: 640px) {
+      .demo-header { margin: 12px 12px 0; }
+      .demo-main { padding: 24px 12px; }
+      .demo-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .demo-wide { grid-column: auto; }
+      .demo-body { padding: 20px; }
+      .demo-header .mint-brand { font-size: 17px; }
+      .demo-table .mint-table-wrap, .demo-disclosure { margin: 0 12px 16px; }
+    }
+  </style>
+</head>
+<body class="mint-app">
+  <header class="mint-header demo-header">
+    <div class="mint-header-inner">
+      <span class="mint-brand-mark" aria-hidden="true">✦</span>
+      <span class="mint-brand">Mint UI</span>
+      <div class="mint-select" data-mint-select id="demo-space">
+        <button class="mint-select-trigger" type="button" data-mint-trigger aria-haspopup="listbox" aria-expanded="false" aria-controls="demo-space-menu" aria-label="スペースを選ぶ">
+          <span data-mint-value>個人</span>
+          <svg class="mint-select-arrow" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m6 8 4 4 4-4"/></svg>
+        </button>
+        <div class="mint-select-menu" data-mint-menu id="demo-space-menu" role="listbox" aria-label="スペースを選ぶ" hidden>
+          <button type="button" role="option" data-value="personal" aria-selected="true" tabindex="-1"><span>個人</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg></button>
+          <button type="button" role="option" data-value="work" aria-selected="false" tabindex="-1"><span>仕事</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg></button>
+          <button type="button" role="option" data-value="ideas" aria-selected="false" tabindex="-1"><span>アイデア</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="demo-main">
+    <div class="demo-intro">
+      <p class="demo-eyebrow">A LITTLE SHELF OF COMPONENTS</p>
+      <h1>ちいさな部品棚</h1>
+      <p class="mint-muted">やわらかな形、ミントの色、気持ちのいい動き。</p>
+    </div>
+
+    <nav class="mint-tabs demo-tabs" data-mint-tabs aria-label="デモのページ">
+      <a href="#components" aria-current="page">部品</a>
+      <a href="#motion">動き</a>
+    </nav>
+
+    <div id="components" class="demo-grid" data-demo-page>
+      <section class="mint-card demo-wide">
+        <div class="mint-card-heading"><h2 class="demo-card-title">フォームと本文の強調</h2></div>
+        <div class="demo-body">
+          <p class="mint-heading">見出しと本文の色を別々に扱えます。</p>
+          <p class="mint-emphasis">伝えたい本文を、やさしい緑で強調します。</p>
+          <label class="mint-field">タイトル<input class="mint-input" placeholder="メモのタイトル"></label>
+          <label class="mint-field">メモ<textarea class="mint-input" placeholder="気づいたことを書きとめる"></textarea></label>
+          <div class="mint-field">状態<div id="demo-status-select"></div></div>
+        </div>
+      </section>
+      <section class="mint-card" data-mint-enter>
+        <div class="mint-card-heading"><h2 class="demo-card-title">ボタン</h2></div>
+        <div class="demo-body">
+          <span class="demo-label">押すと、少しだけころん。</span>
+          <div class="demo-actions">
+            <button class="mint-button" data-variant="primary" type="button" id="demo-save">保存する</button>
+            <button class="mint-button" data-variant="soft" type="button" id="demo-reset">元に戻す</button>
+            <button class="mint-button" type="button" disabled>準備中</button>
+          </div>
+          <p class="demo-status" id="demo-save-status" role="status">いつでも試せます。</p>
+        </div>
+      </section>
+
+      <section class="mint-card" data-mint-enter>
+        <div class="mint-card-heading"><h2 class="demo-card-title">選べるメニュー</h2></div>
+        <div class="demo-body">
+          <p>右上から、好きなスペースを選んでみてください。</p>
+          <p class="mint-muted">矢印キーで移動、Enter で選択、Esc で閉じられます。</p>
+          <p class="demo-status" id="demo-space-status" role="status">「個人」を選んでいます。</p>
+        </div>
+      </section>
+
+      <section class="mint-card demo-wide demo-table" data-mint-column-toggle data-mint-enter>
+        <div class="mint-card-heading"><h2 class="demo-card-title">表とバッジ</h2></div>
+        <div class="demo-body">
+          <button type="button" class="mint-button" data-mint-columns-toggle="details" aria-expanded="false" aria-controls="demo-table"><span data-mint-collapsed-label>メモ列を表示</span><span data-mint-expanded-label hidden>メモ列を隠す</span></button><div class="demo-directions" aria-label="矢印の意味">
+            <span><span class="mint-direction" data-shape="round" data-direction="up" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span>増える</span>
+            <span><span class="mint-direction" data-shape="soft" data-direction="down" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></span>減る</span>
+            <span><span class="mint-direction" data-shape="soft" data-direction="flat" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></span>そのまま</span>
+          </div>
+        </div>
+        <div class="mint-table-wrap" data-mint-sticky-table role="region" aria-label="スペースの使用例" tabindex="0">
+          <table class="mint-table" id="demo-table">
+            <thead><tr><th scope="col">今日の小さなこと</th><th scope="col">アイデア</th><th scope="col" data-mint-column="details" hidden>未整理のメモ</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">ひらめきを書きとめる</th><td><span class="mint-direction" data-shape="soft" data-direction="up" role="img" aria-label="増える"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span></td><td data-mint-column="details" hidden><span class="mint-direction" data-shape="soft" data-direction="up" role="img" aria-label="増える"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span></td></tr>
+              <tr><th scope="row">メモをフォルダに整理</th><td><span class="mint-direction" data-shape="soft" data-direction="flat" role="img" aria-label="そのまま"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></span></td><td data-mint-column="details" hidden><span class="mint-direction" data-shape="soft" data-direction="down" role="img" aria-label="減る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mint-card demo-wide" data-mint-enter>
+        <div class="mint-card-heading"><h2 class="demo-card-title">開閉パネル</h2></div>
+        <details class="mint-disclosure demo-disclosure" data-mint-disclosure>
+          <summary><span>この部品棚について</span><span class="mint-disclosure-icon" aria-hidden="true">＋</span></summary>
+          <div class="mint-disclosure-body"><p>このページは学術ノートと同じ CSS と JavaScript を読み込んでいます。内容や画面構成が違っても、色・丸み・操作感は同じです。</p><p class="mint-muted">色を変えるときは共通テーマの変数から。メニューの中まで、ひとつのテーマで揃います。</p></div>
+        </details>
+      </section>
+    </div>
+
+    <section id="motion" class="mint-card" data-demo-page data-mint-enter hidden>
+      <div class="mint-card-heading"><h2 class="demo-card-title">触って確かめる</h2></div>
+      <div class="demo-body">
+        <ul class="demo-motion-list">
+          <li>タブの背景が、選んだページへ滑ります。</li>
+          <li>メニューがふわっと開き、矢印が回ります。</li>
+          <li>ボタンは押すと少し沈み、指を離すと戻ります。</li>
+          <li>開閉パネルは、中身の高さに合わせて動きます。</li>
+        </ul>
+        <p class="mint-muted">端末で「視差効果を減らす」などの設定をしている場合は、動きを抑えます。</p>
+      </div>
+    </section>
+
+<section class="mint-card demo-wide"><div class="mint-card-heading"><h2 class="demo-card-title">方向バッジのバリエーション</h2></div><div class="demo-body"><p>① 丸い矢印（標準）</p><div class="demo-directions"><span class="mint-direction" data-direction="up" data-shape="soft" role="img" aria-label="増加"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span><span class="mint-direction" data-direction="down" data-shape="soft" role="img" aria-label="減少"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="3.2" transform="rotate(180 12 12)"/></svg></span><span class="mint-direction" data-direction="flat" data-shape="soft" role="img" aria-label="変化なし"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span></div><p>② 丸い三角</p><div class="demo-directions"><span class="mint-direction" data-direction="up" data-shape="soft" role="img" aria-label="増加"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 6.6Q12 3.8 13.7 6.6L19.2 15.5Q20.8 18 17.8 18H6.2Q3.2 18 4.8 15.5Z" fill="currentColor" stroke="none" stroke-width="3.2" transform=""/></svg></span><span class="mint-direction" data-direction="down" data-shape="soft" role="img" aria-label="減少"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 6.6Q12 3.8 13.7 6.6L19.2 15.5Q20.8 18 17.8 18H6.2Q3.2 18 4.8 15.5Z" fill="currentColor" stroke="none" stroke-width="3.2" transform="rotate(180 12 12)"/></svg></span><span class="mint-direction" data-direction="flat" data-shape="soft" role="img" aria-label="変化なし"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span></div><p>③ 山形</p><div class="demo-directions"><span class="mint-direction" data-direction="up" data-shape="soft" role="img" aria-label="増加"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" fill="none" stroke="currentColor" stroke-width="4" transform=""/></svg></span><span class="mint-direction" data-direction="down" data-shape="soft" role="img" aria-label="減少"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" fill="none" stroke="currentColor" stroke-width="4" transform="rotate(180 12 12)"/></svg></span><span class="mint-direction" data-direction="flat" data-shape="soft" role="img" aria-label="変化なし"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="4" transform=""/></svg></span></div><p>④ 太い矢印</p><div class="demo-directions"><span class="mint-direction" data-direction="up" data-shape="soft" role="img" aria-label="増加"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 4.8Q12 3.2 13.4 4.8L20 11.5Q21.5 13.4 19 13.4H15V19Q15 21 13 21H11Q9 21 9 19V13.4H5Q2.5 13.4 4 11.5Z" fill="currentColor" stroke="none" stroke-width="3.2" transform=""/></svg></span><span class="mint-direction" data-direction="down" data-shape="soft" role="img" aria-label="減少"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 4.8Q12 3.2 13.4 4.8L20 11.5Q21.5 13.4 19 13.4H15V19Q15 21 13 21H11Q9 21 9 19V13.4H5Q2.5 13.4 4 11.5Z" fill="currentColor" stroke="none" stroke-width="3.2" transform="rotate(180 12 12)"/></svg></span><span class="mint-direction" data-direction="flat" data-shape="soft" role="img" aria-label="変化なし"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span></div><p>⑤ 丸い背景</p><div class="demo-directions"><span class="mint-direction" data-direction="up" data-shape="round" role="img" aria-label="増加"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span><span class="mint-direction" data-direction="down" data-shape="round" role="img" aria-label="減少"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="3.2" transform="rotate(180 12 12)"/></svg></span><span class="mint-direction" data-direction="flat" data-shape="round" role="img" aria-label="変化なし"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3.2" transform=""/></svg></span></div></div></section>
+    <section class="mint-card demo-wide demo-table"><div class="mint-card-heading"><h2 class="demo-card-title">結合セルのホバー</h2></div><div class="mint-table-wrap"><table class="mint-table"><thead><tr><th>グループ</th><th>項目</th></tr></thead><tbody data-mint-row-group><tr><th scope="row" rowspan="2">共通の見出し</th><td>上の行</td></tr><tr><td>下の行にもホバーできます</td></tr></tbody><tbody><tr><th scope="row">別の見出し</th><td>隣のグループには影響しません</td></tr></tbody></table></div></section>
+    <footer class="demo-footer">Mint UI · 共通部品だけで作ったサンプル</footer>
+  <section class="mint-card" style="padding:var(--mint-space-6)"><div id="demo-theme"></div><div class="mint-prose"><h2>文章の共通スタイル</h2><p>見出し・段落・引用・脚注の読み心地を共通化します。</p><ul><li>本文の色に揃えた箇条書き。</li><li>テーマが変わっても同じ構造を使えます。</li></ul><blockquote><p>引用は本文と区別しながら、落ち着いた背景で表示します。</p></blockquote><details class="mint-disclosure" data-mint-disclosure><summary>補足を読む<span class="mint-disclosure-icon" aria-hidden="true"></span></summary><div class="mint-disclosure-body">同じ開閉部品をブログにもアプリにも使えます。</div></details></div></section></main>
+
+  <script type="module">
+    import { initTheme, createThemeSelect, initMintUI, createSelect } from '../mint-ui.js';
+
+    const statusSelect = createSelect({label: 'メモの状態', value: 'draft', options: [{value: 'draft', label: '下書き'}, {value: 'review', label: '確認中'}, {value: 'ready', label: '準備できた'}]});
+    document.querySelector('#demo-status-select').append(statusSelect.element);
+
+    initMintUI();
+
+    const themePicker=createThemeSelect({theme:initTheme(),label:'表示テーマ',labels:{dark:'ダーク',light:'ライト',auto:'端末設定'}});
+    document.querySelector('#demo-theme').append(themePicker.element);
+    const tabs = document.querySelector('[data-mint-tabs]');
+    function showPage() {
+      const page = location.hash === '#motion' ? 'motion' : 'components';
+      for (const link of tabs.querySelectorAll('a')) {
+        if (link.hash === `#${page}`) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }
+      for (const panel of document.querySelectorAll('[data-demo-page]')) {
+        panel.hidden = panel.id !== page;
+      }
+    }
+    window.addEventListener('hashchange', showPage);
+    showPage();
+
+    const spaces = { personal: '個人', work: '仕事', ideas: 'アイデア' };
+    document.querySelector('#demo-space').addEventListener('mint:change', event => {
+      document.querySelector('#demo-space-status').textContent = `「${spaces[event.detail.value]}」を選んでいます。`;
+    });
+    document.querySelector('#demo-save').addEventListener('click', () => {
+      document.querySelector('#demo-save-status').textContent = '保存できました。';
+    });
+    document.querySelector('#demo-reset').addEventListener('click', () => {
+      document.querySelector('#demo-save-status').textContent = 'いつでも試せます。';
+    });
+  </script>
+</body>
+</html>

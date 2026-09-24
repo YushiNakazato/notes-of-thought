@@ -1,0 +1,32 @@
+{
+  "name": "@yushi/mint-ui",
+  "version": "0.4.15",
+  "private": true,
+  "description": "Reusable rounded dark mint UI for plain HTML and framework projects.",
+  "type": "module",
+  "exports": {
+    ".": "./mint-ui.js",
+    "./mint-ui.js": "./mint-ui.js",
+    "./theme.css": "./theme.css",
+    "./components.css": "./components.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "mint-ui.js",
+    "theme.css",
+    "components.css",
+    "install.mjs",
+    "README.md",
+    "AGENTS.md",
+    "examples"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

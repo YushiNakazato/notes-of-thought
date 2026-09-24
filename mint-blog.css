@@ -1,0 +1,45 @@
+@import url('./vendor/mint-ui/0.4.15/theme.css');
+@import url('./vendor/mint-ui/0.4.15/components.css');
+/* Map Fuwari’s semantic names to the shared theme; no copied palette. */
+:root[data-mint-theme][data-mint-mode] {
+  --primary: var(--mint-accent);
+  --page-bg: var(--mint-canvas);
+  --card-bg: var(--mint-surface-section);
+  --radius-large: var(--mint-radius-control);
+  --btn-content: var(--mint-accent);
+  --btn-regular-bg: var(--mint-control-surface);
+  --btn-regular-bg-hover: var(--mint-control-hover);
+  --btn-regular-bg-active: var(--mint-control-active);
+  --btn-regular-content: var(--mint-control-text);
+  --btn-plain-bg-hover: var(--mint-link-surface-hover);
+  --btn-plain-bg-active: var(--mint-link-surface-active);
+  --btn-card-bg-hover: var(--mint-surface);
+  --btn-card-bg-active: var(--mint-link-surface-hover);
+  --deep-text: var(--mint-on-accent);
+  --title-active: var(--mint-accent);
+  --line-divider: var(--mint-line-divider);
+  --line-color: var(--mint-border);
+  --meta-divider: var(--mint-border);
+  --selection-bg: var(--mint-selection-surface);
+  --codeblock-selection: var(--mint-selection-surface);
+  --codeblock-bg: var(--mint-canvas);
+  --codeblock-topbar-bg: var(--mint-surface);
+  --link-underline: var(--mint-line-accent);
+  --link-hover: var(--mint-accent);
+  --link-active: var(--mint-text-accent);
+  --float-panel-bg: var(--mint-surface);
+  --toc-btn-hover: var(--mint-link-surface-hover);
+  --toc-btn-active: var(--mint-link-surface-active);
+  --toc-item-active: var(--mint-link-surface-hover);
+}
+.mint-blog-nav { position: relative; }
+.mint-blog-nav > summary { padding: 10px; min-height: 44px; }
+.mint-blog-nav > .mint-disclosure-body { position: absolute; right: 0; top: 100%; min-width: 190px; padding: 10px; z-index: 50; }
+/* Preserve the approved article rhythm; existing typography owns its text colors. */
+.custom-md.mint-prose { line-height: var(--mint-prose-leading); }
+.custom-md.mint-prose :is(p,ul,ol,blockquote) { line-height: var(--mint-prose-leading); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .onload-animation, .transition-swup-fade, .transition-swup-slide { animation: none !important; transition: none !important; }
+  .onload-animation { opacity: 1 !important; transform: none !important; }
+}
